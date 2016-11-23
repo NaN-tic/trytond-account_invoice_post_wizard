@@ -6,7 +6,7 @@ import re
 import os
 import ConfigParser
 
-MODULE = 'account_invoice_post'
+MODULE = 'account_invoice_post_wizard'
 PREFIX = 'nantic'
 MODULE2PREFIX = {}
 
