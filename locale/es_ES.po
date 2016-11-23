@@ -1,0 +1,35 @@
+#
+msgid ""
+msgstr "Content-Type: text/plain; charset=utf-8\n"
+
+msgctxt "field:account.invoice.post_invoices.start,all_invoices:"
+msgid "All Invoices?"
+msgstr "Todas las facturas?"
+
+msgctxt "field:account.invoice.post_invoices.start,id:"
+msgid "ID"
+msgstr "Identificador"
+
+msgctxt "field:account.invoice.post_invoices.start,invoices:"
+msgid "Invoices"
+msgstr "Facturas"
+
+msgctxt "model:account.invoice.post_invoices.start,name:"
+msgid "Post invoices start"
+msgstr "Comptabilizar facturas"
+
+msgctxt "model:ir.action,name:wizard_post_invoices"
+msgid "Post invoices"
+msgstr "Comptabilizar facturas"
+
+msgctxt "view:account.invoice.post_invoices.start:"
+msgid "Post invoices"
+msgstr "Comptabilizar facturas"
+
+msgctxt "wizard_button:account.invoice.post_invoices,start,end:"
+msgid "Cancel"
+msgstr "Cancelar"
+
+msgctxt "wizard_button:account.invoice.post_invoices,start,post:"
+msgid "Post"
+msgstr "Comptabilizar"
