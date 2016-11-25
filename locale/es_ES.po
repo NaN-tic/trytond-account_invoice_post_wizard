@@ -16,15 +16,15 @@ msgstr "Facturas"
 
 msgctxt "model:account.invoice.post_invoices.start,name:"
 msgid "Post invoices start"
-msgstr "Comptabilizar facturas"
+msgstr "Contabilizar facturas"
 
 msgctxt "model:ir.action,name:wizard_post_invoices"
 msgid "Post invoices"
-msgstr "Comptabilizar facturas"
+msgstr "Contabilizar facturas"
 
 msgctxt "view:account.invoice.post_invoices.start:"
 msgid "Post invoices"
-msgstr "Comptabilizar facturas"
+msgstr "Contabilizar facturas"
 
 msgctxt "wizard_button:account.invoice.post_invoices,start,end:"
 msgid "Cancel"
