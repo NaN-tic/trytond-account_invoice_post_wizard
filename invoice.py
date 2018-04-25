@@ -5,12 +5,12 @@ from trytond.pool import Pool, PoolMeta
 from trytond.wizard import Wizard, StateTransition, StateView, Button
 
 __all__ = ['PostInvoicesStart', 'PostInvoices']
-__metaclass__ = PoolMeta
 
 
 class PostInvoicesStart(ModelView):
     'Post invoices start'
     __name__ = 'account.invoice.post_invoices.start'
+    __metaclass__ = PoolMeta
 
     invoices = fields.Many2Many('account.invoice', None, None, 'Invoices',
         domain=[
@@ -22,6 +22,7 @@ class PostInvoicesStart(ModelView):
 class PostInvoices(Wizard):
     'Post invoices'
     __name__ = 'account.invoice.post_invoices'
+    __metaclass__ = PoolMeta
 
     start = StateView('account.invoice.post_invoices.start',
         'account_invoice_post_wizard.post_invoice_start_view_form', [
