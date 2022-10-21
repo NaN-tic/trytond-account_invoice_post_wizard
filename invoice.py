@@ -27,12 +27,15 @@ class PostInvoices(Wizard):
             ])
     post = StateTransition()
 
+    def _invoice_domain(self):
+        return [('state', '=', 'draft')]
+
     def transition_post(self):
         Invoice = Pool().get('account.invoice')
 
         if not self.start.all_invoices:
             Invoice.post(self.start.invoices)
             return 'end'
-        invoices = Invoice.search([('state', '=', 'draft')])
+        invoices = Invoice.search(self._invoice_domain())
         Invoice.post(invoices)
         return 'end'
