@@ -3,6 +3,8 @@
 from trytond.model import ModelView, fields
 from trytond.pool import Pool
 from trytond.wizard import Wizard, StateTransition, StateView, Button
+from trytond.transaction import Transaction
+from trytond.pyson import Eval
 
 
 class PostInvoicesStart(ModelView):
@@ -12,8 +14,13 @@ class PostInvoicesStart(ModelView):
     invoices = fields.Many2Many('account.invoice', None, None, 'Invoices',
         domain=[
             ('state', '=', 'draft'),
-            ])
+            ('company', '=', Eval('company', -1)),
+        ], depends=['company'])
+    company = fields.Many2One('company.company', 'Company', readonly=True)
     all_invoices = fields.Boolean('All Invoices?')
+
+    def default_company():
+        return Transaction().context.get('company', -1)
 
 
 class PostInvoices(Wizard):
@@ -28,7 +35,10 @@ class PostInvoices(Wizard):
     post = StateTransition()
 
     def _invoice_domain(self):
-        return [('state', '=', 'draft')]
+        return [
+            ('state', '=', 'draft'),
+            ('company', '=', Transaction().context.get('company', -1)),
+            ]
 
     def transition_post(self):
         Invoice = Pool().get('account.invoice')
