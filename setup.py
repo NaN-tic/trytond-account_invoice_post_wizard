@@ -1,7 +1,5 @@
 #!/usr/bin/env python
-# This file is part account_invoice_jreport module for Tryton.
-# The COPYRIGHT file at the top level of this repository contains
-# the full copyright notices and license terms.
+# encoding: utf-8
 
 from setuptools import setup
 import re
@@ -48,10 +46,13 @@ for dep in info.get('depends', []):
         requires.append(get_require_version('%s_%s' % (prefix, dep)))
 requires.append(get_require_version('trytond'))
 
-tests_require = []
+tests_require = [
+    get_require_version('proteus'),
+]
+
 series = '%s.%s' % (major_version, minor_version)
 if minor_version % 2:
-    branch = 'master'
+    branch = 'default'
 else:
     branch = series
 
@@ -63,12 +64,12 @@ if minor_version % 2:
 
 setup(name='%s_%s' % (PREFIX, MODULE),
     version=version,
-    description='Tryton module invoice post wizard',
+    description='',
     long_description=read('README'),
-    author='Nantic',
-    author_email='info@nan-tic.com.com',
-    url='http://www.nan-tic.com',
-    download_url="https://github.com/NaN-tic/trytond-%s" % MODULE,
+    author='NaN·tic',
+    author_email='info@nan-tic.com',
+    url='http://www.nan-tic.com/',
+    download_url="https://bitbucket.org/nantic/trytond-%s" % MODULE,
     package_dir={'trytond.modules.%s' % MODULE: '.'},
     packages=[
         'trytond.modules.%s' % MODULE,
@@ -76,7 +77,7 @@ setup(name='%s_%s' % (PREFIX, MODULE),
         ],
     package_data={
         'trytond.modules.%s' % MODULE: (info.get('xml', [])
-            + ['tryton.cfg', 'locale/*.po', '*.jrxml']),
+            + ['tryton.cfg', 'locale/*.po', 'tests/*.rst']),
         },
     classifiers=[
         'Development Status :: 5 - Production/Stable',
@@ -85,9 +86,15 @@ setup(name='%s_%s' % (PREFIX, MODULE),
         'Intended Audience :: Developers',
         'Intended Audience :: Financial and Insurance Industry',
         'Intended Audience :: Legal Industry',
-        'Intended Audience :: Manufacturing',
         'License :: OSI Approved :: GNU General Public License (GPL)',
+        'Natural Language :: Bulgarian',
         'Natural Language :: Catalan',
+        'Natural Language :: Czech',
+        'Natural Language :: Dutch',
+        'Natural Language :: English',
+        'Natural Language :: French',
+        'Natural Language :: German',
+        'Natural Language :: Russian',
         'Natural Language :: Spanish',
         'Operating System :: OS Independent',
         'Programming Language :: Python :: 2.7',
